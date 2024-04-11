@@ -59,7 +59,7 @@ selected = option_menu(
     icons=["house", "speedometer2", "envelope"],
     menu_icon="cast",
     orientation="horizontal",
-    default_index=0,
+    default_index=1,
     styles={
         "container":{"max-width":"100%", "padding":"0"},
         
