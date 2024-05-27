@@ -239,7 +239,7 @@ if selected == "Dashboard":
                 to_drop.append(ind)
                 continue  # Move to the next row
             
-            # If SleepTime is not greater or equal to the initial, mark for dropping
+            # If SleepTime is smaller than the initial, mark for dropping
             if float(row["SleepTime"]) < initial_sleep_time:
                 to_drop.append(ind)
                 continue
@@ -878,9 +878,37 @@ if selected == "Dashboard":
         doc_ref.set(analytics_data.to_dict())
     else:
         streamlit_analytics.stop_tracking()
+    # def fetch_widgets_data():
+    #     widgets_count = {}
+    #     db = firestore.Client.from_service_account_info(firestore_cred)
+
+    #     # Reference to the collection
+    #     docs = db.collection('users').stream()
+
+    #     for doc in docs:
+    #         data = doc.to_dict()
+    #         # Check if 'widgets' exists in the document
+    #         if 'widgets' in data:
+    #             widgets = data['widgets']
+    #             # Iterate through each widget in 'widgets'
+    #             for widget_key, widget_value in widgets.items():
+    #                 if isinstance(widget_value, dict):
+    #                     # Iterate through nested dictionaries
+    #                     for key, value in widget_value.items():
+    #                         if isinstance(value, int):  # assuming you store counts as integers
+    #                             if key in widgets_count:
+    #                                 widgets_count[key] += value
+    #                             else:
+    #                                 widgets_count[key] = value
+
+    #     return widgets_count
+    # widget_usage = fetch_widgets_data()
+    # with open('widgets_data.json', 'w') as json_file:
+    #     json.dump(widget_usage, json_file, indent=4)
+
+
 
     
-
 
 if selected == "Contact":
     col1, colcol2= st.columns([1,2])
