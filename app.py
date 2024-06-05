@@ -6,7 +6,6 @@ import pickle
 import json
 import sklearn
 import random
-# import streamviz as sv
 from joblib import dump, load
 import joblib
 import dice_ml
@@ -15,7 +14,6 @@ from helperfunctions import *
 from langchain.tools import BaseTool, StructuredTool, tool
 from sklearn.base import BaseEstimator, TransformerMixin
 import os
-# from joblib import load
 import pandas as pd
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain_openai import ChatOpenAI
@@ -80,10 +78,9 @@ st.markdown(
     )
 
 
-# from streamlit_float import *
-
-# float_init(theme=True, include_unstable_primary=False)
-
+#############################
+    # Home page
+#############################
 if selected == "Home":
     col1, colcol2= st.columns([1,2])
     _, col2,_ = colcol2.columns([0.01,2,1.3])
@@ -104,6 +101,9 @@ if selected == "Home":
     with col1.container():
         st.image("images/handholding1.png")
 
+#############################
+    # Dashboard page
+#############################
 if selected == "Dashboard":
     
     if st.secrets["PROD"] == "True":
@@ -322,7 +322,7 @@ if selected == "Dashboard":
                 retries += 1
 
         
-        return None  # or return an empty DataFrame/list as per your design
+        return None  
     
     @st.cache_data(persist=True)
     def generate_probability_prediction(cfs):
@@ -491,7 +491,6 @@ if selected == "Dashboard":
         )
         graph_select = option
 
-    # Assuming 'heart' is your DataFrame and 'col1' is a defined Streamlit container
     if option == "BMI":    
         with col1.container(border=True):
             bar_chart_spec = {
@@ -909,7 +908,9 @@ if selected == "Dashboard":
 
 
     
-
+#############################
+    # Contact page
+#############################
 if selected == "Contact":
     col1, colcol2= st.columns([1,2])
     _, col2,_ = colcol2.columns([0.01,2,1.3])    
