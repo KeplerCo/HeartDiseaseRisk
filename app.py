@@ -15,7 +15,6 @@ from langchain.tools import BaseTool, StructuredTool, tool
 from sklearn.base import BaseEstimator, TransformerMixin
 import os
 import pandas as pd
-from langchain.pydantic_v1 import BaseModel, Field
 from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain import hub
