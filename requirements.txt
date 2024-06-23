@@ -10,7 +10,9 @@ matplotlib
 dice-ml
 streamlit_option_menu
 lightgbm
-pydantic
+pydantic==2.6.1
+pydantic_core==2.16.2
+
 langchainhub
 langchain
 langchain_openai
