@@ -81,24 +81,24 @@ st.markdown(
     # Home page
 #############################
 if selected == "Home":
-    col1, colcol2= st.columns([1,2])
-    _, col2,_ = colcol2.columns([0.01,2,1.3])
+    col1, colcol2 = st.columns([1, 2])
+    _, col2, _ = colcol2.columns([0.01, 2, 1.3])
 
     col2.title("Heart Health Advisor")
-    col2.subheader("Welcome to the Heart Risk Assessment Tool")
-    col2.markdown("""This tool is designed to help you understand your risk of heart disease. Currently, the tool uses data from a preset patient profile to assess the risk of heart disease, instead of your personal information. 
-              This approach is used because processing confidential information requires extensive approvals from regulatory bodies.""")
-    col2.markdown("""Here you will find the steps you need to follow to participate in the study.
-- Open the following link: https://forms.gle/Pgdfh2HoWb8nP9dQA
-- Fill in the <u>first</u> page of the form
-- To fill in the <u>second</u> page of the form, you will need the dashboard. You can access the dashboard by clicking on the "Dashboard" button at the top of this page. Then, you will find the chatbot at the bottom right.
-- Answer all the questions on the <u>second</u> page of the form using the chatbot, do not hesitate to have a good conversation with the chatbot.
-- For the third and fourth page, you will not need the chatbot and can simply continue to fill in the form.
-- When you have finished filling out the form, click "Submit" to submit your answers.
-- If you have any questions, you can always reach us via the contact page at the top right""", unsafe_allow_html=True)
-    
+    col2.subheader("Welcome to the Ultimate Heart Risk Assessment Tool")
+
+    col2.markdown("""
+        **Empower yourself with insights into your heart health!** Our cutting-edge Heart Risk Assessment Tool leverages advanced AI to help you understand and manage your risk of heart disease. Although we currently use preset patient profiles to provide risk assessments, our comprehensive approach ensures valuable guidance without the need for personal information.
+
+        ### Why Use Our Tool?
+        - **Accurate Assessments:** Get reliable insights based on AI-driven analysis.
+        - **User-Friendly Interface:** Navigate with ease and engage in meaningful conversations with our intuitive chatbot.
+        - **Actionable Guidance:** Receive clear steps to manage and reduce your heart disease risk.
+    """)
+
     with col1.container():
         st.image("images/handholding1.png")
+
 
 #############################
     # Dashboard page
@@ -513,7 +513,7 @@ if selected == "Dashboard":
                 }
             },
             {
-        "mark": {"type": "rule", "color": "red", "size": 2},  # Red line configuration
+        "mark": {"type": "rule", "color": "orange", "size": 2},  # Red line configuration
         "encoding": {
             "x": {
                 "field": "BMICategory",  # Ensuring this matches the bar chart's field
@@ -537,7 +537,7 @@ if selected == "Dashboard":
             }
     # Create a DataFrame from the static values
             static_data = pd.DataFrame(list(bmi_values.items()), columns=['BMICategory', 'count'])
-            st.markdown(f"The red line is your BMI category: :red[{BMI}]]")
+            st.markdown(f"The orange line is your BMI category: :orange[{BMI}]]")
             st.vega_lite_chart(static_data, bar_chart_spec, use_container_width=True)
 
     if option == "General Health":
