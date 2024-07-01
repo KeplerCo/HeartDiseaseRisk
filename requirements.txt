@@ -10,7 +10,7 @@ matplotlib
 dice-ml
 streamlit_option_menu
 lightgbm
-pydantic==2.6.1
+pydantic==1.10.9
 pydantic_core==2.16.2
 
 langchainhub
