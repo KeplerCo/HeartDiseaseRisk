@@ -11,6 +11,7 @@ import joblib
 import dice_ml
 from streamlit_option_menu import option_menu
 from helperfunctions import *
+from langchain.pydantic import BaseModel, Field
 from langchain.tools import tool
 from sklearn.base import BaseEstimator, TransformerMixin
 import os
@@ -747,19 +748,19 @@ if selected == "Dashboard":
             - Smoking: {smokingcat}
             - Stroke: {strokecat}"""
 
-    # import enum
-    # class BMICategory(enum.Enum):
-    #     skip_on_failure=True
-    #     Underweight = "Underweight (BMI < 18.5)"
-    #     NormalWeight = "Normal weight (18.5 <= BMI < 25.0)"
-    #     Overweight = "Overweight (25.0 <= BMI < 30.0)"
-    #     Obese = "Obese (30.0 <= BMI < +Inf)"
+    import enum
+    class BMICategory(enum.Enum):
+        skip_on_failure=True
+        Underweight = "Underweight (BMI < 18.5)"
+        NormalWeight = "Normal weight (18.5 <= BMI < 25.0)"
+        Overweight = "Overweight (25.0 <= BMI < 30.0)"
+        Obese = "Obese (30.0 <= BMI < +Inf)"
 
-    # @tool
-    # def filter_data_for_BMI_Category(bmi: BMICategory):
-    #     """Filters the dataset based on the BMI category and returns the amount of rows that satisfy those parameters."""
-    #     filtered_df = heart[heart["BMICategory"] == bmi.value]
-    #     return filtered_df.shape[0]
+    @tool
+    def filter_data_for_BMI_Category(bmi: BMICategory):
+        """Filters the dataset based on the BMI category and returns the amount of rows that satisfy those parameters."""
+        filtered_df = heart[heart["BMICategory"] == bmi.value]
+        return filtered_df.shape[0]
     
     @tool
     def sample_data_set():
