@@ -12,7 +12,7 @@ import dice_ml
 from streamlit_option_menu import option_menu
 from helperfunctions import *
 from langchain.pydantic_v1 import BaseModel, Field
-from langchain.tools import tool
+from langchain.tools import BaseTool, StructuredTool, tool
 from sklearn.base import BaseEstimator, TransformerMixin
 import os
 import pandas as pd
