@@ -5,7 +5,7 @@ numpy==1.26.1
 streamlit==1.36.0
 pydantic==2.8.0
 pydantic_core==2.20.0
-langchain==
+langchain
 langchain-community
 langchain-core
 langchain-openai
