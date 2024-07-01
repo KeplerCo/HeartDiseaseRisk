@@ -872,7 +872,7 @@ if selected == "Dashboard":
 
                     response = agent_executor.invoke({"input": prompt,
                                                       "chat_history": st.session_state.messages} )
-                    st.write(response)
+                    st.write(response["output"])
 
             st.session_state.messages.append({"role": "assistant", "content": response["output"]})
     
