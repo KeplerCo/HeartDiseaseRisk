@@ -9,7 +9,6 @@ langchain
 langchain-community
 langchain-core
 langchain-openai
-langchain-text-splitter
 langchainhub
 streamlit
 streamlit-cookies-controller==0.0.3
