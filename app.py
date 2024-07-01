@@ -750,6 +750,7 @@ if selected == "Dashboard":
 
     import enum
     class BMICategory(enum.Enum):
+        skip_on_failure=True
         Underweight = "Underweight (BMI < 18.5)"
         NormalWeight = "Normal weight (18.5 <= BMI < 25.0)"
         Overweight = "Overweight (25.0 <= BMI < 30.0)"
