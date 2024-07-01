@@ -14,6 +14,8 @@ from helperfunctions import *
 from langchain.tools import BaseTool, StructuredTool, tool
 from sklearn.base import BaseEstimator, TransformerMixin
 import os
+from langchain_core.output_parsers import StrOutputParser
+
 import pandas as pd
 from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
@@ -56,7 +58,7 @@ selected = option_menu(
     icons=["house", "speedometer2", "envelope"],
     menu_icon="cast",
     orientation="horizontal",
-    default_index=1,
+    default_index=0,
     styles={
         "container":{"max-width":"100%", "padding":"0"},
         
@@ -71,7 +73,7 @@ st.markdown(
                     }}
 
             </style>""".format(
-            padding_top=3, padding_bottom=3
+            padding_top=4, padding_bottom=3
         ),
         unsafe_allow_html=True,
     )
@@ -828,6 +830,10 @@ if selected == "Dashboard":
         unsafe_allow_html=True,
     )
 
+    
+
+    
+
     with col2.container(border=True):
         st.subheader("Your Heart Health Assistant")
         st.markdown("<p>Feel free to pose any questions regarding your risk of heart diseases. The AI will try to provide answers to the best of its capabilities. As a starting point, you can press one of the buttons below.</p>", unsafe_allow_html=True)
@@ -863,9 +869,11 @@ if selected == "Dashboard":
             
             with history.chat_message("assistant"):
                 with st.spinner("Thinking..."):
+
                     response = agent_executor.invoke({"input": prompt,
                                                       "chat_history": st.session_state.messages} )
-                    st.write(response["output"])
+                    st.write(response)
+
             st.session_state.messages.append({"role": "assistant", "content": response["output"]})
     
             
@@ -906,8 +914,11 @@ if selected == "Dashboard":
     #     json.dump(widget_usage, json_file, indent=4)
 
 
-
+    # user input
+    # session state
     
+
+        
 #############################
     # Contact page
 #############################
