@@ -11,7 +11,7 @@ langchain-core
 langchain-openai
 langchain-text-splitter
 langchainhub
-streamlit==1.36.0
+streamlit
 streamlit-cookies-controller==0.0.3
 streamlit-float==0.3.2
 streamlit-option-menu==0.3.13
